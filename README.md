@@ -150,3 +150,7 @@ timeouts can occur after partial delivery, so callers must not automatically res
 
 If the device is unlinked from the phone, the service deletes the dead credentials and exits
 with code 3 (no automatic restart); run `/whatsapp pair` again.
+
+## License
+
+[MIT](LICENSE)

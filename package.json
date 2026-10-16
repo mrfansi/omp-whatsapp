@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "WhatsApp bridge for omp (Baileys + omp --mode rpc)",
   "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrfansi/omp-whatsapp.git"
