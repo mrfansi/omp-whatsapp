@@ -3,6 +3,12 @@
   "version": "1.1.0",
   "description": "WhatsApp bridge for omp (Baileys + omp --mode rpc)",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrfansi/omp-whatsapp.git"
+  },
+  "homepage": "https://github.com/mrfansi/omp-whatsapp#readme",
+  "bugs": "https://github.com/mrfansi/omp-whatsapp/issues",
   "scripts": {
     "start": "node src/index.js",
     "pair": "node src/index.js --pair"
