@@ -1,0 +1,17 @@
+[Unit]
+Description=omp WhatsApp bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/mrfansi/Github/mrfansi/omp-whatsapp
+Environment=PATH=/home/mrfansi/.local/bin:/home/mrfansi/.nvm/versions/node/v24.21.0/bin:/home/mrfansi/.bun/bin:/home/mrfansi/.cargo/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/mrfansi/.nvm/versions/node/v24.21.0/bin/node /home/mrfansi/Github/mrfansi/omp-whatsapp/src/index.js
+Restart=on-failure
+RestartSec=5
+# 2 = not linked, 3 = logged out: run /whatsapp pair first
+RestartPreventExitStatus=2 3
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,73 @@
+{
+  "name": "omp-whatsapp",
+  "version": "1.1.0",
+  "description": "WhatsApp bridge for omp (Baileys + omp --mode rpc)",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "pair": "node src/index.js --pair"
+  },
+  "type": "module",
+  "omp": {
+    "name": "WhatsApp",
+    "description": "Chat with omp from WhatsApp; /whatsapp manages the bridge service",
+    "extensions": [
+      "src/extension.js"
+    ],
+    "settings": {
+      "allowedNumbers": {
+        "type": "string",
+        "description": "WhatsApp numbers allowed to command the agent, comma-separated, international format without + (e.g. 628123456789)",
+        "default": ""
+      },
+      "cwd": {
+        "type": "string",
+        "description": "Default project directory; changing it switches the bridge there with a fresh session (/cd does the same from WhatsApp). Empty = home",
+        "default": ""
+      },
+      "model": {
+        "type": "string",
+        "description": "Model override as provider/id, e.g. anthropic/claude-sonnet-5 (empty = your omp default role)",
+        "default": ""
+      },
+      "thinking": {
+        "type": "enum",
+        "description": "Agent thinking level",
+        "values": [
+          "default",
+          "off",
+          "minimal",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "default": "default"
+      },
+      "progress": {
+        "type": "enum",
+        "description": "Show a \"typing…\" indicator while the agent works. WhatsApp cannot live-edit a sent message, so no progress messages are sent",
+        "values": [
+          "tools",
+          "off"
+        ],
+        "default": "off"
+      },
+      "notifications": {
+        "type": "enum",
+        "description": "Send status and final answer when main-agent work in the omp terminal finishes (excludes WhatsApp, RPC, print/JSON, and subagents)",
+        "values": [
+          "off",
+          "terminal"
+        ],
+        "default": "off"
+      }
+    }
+  },
+  "dependencies": {
+    "baileys": "^7.0.0-rc14",
+    "pino": "^10.3.1",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
